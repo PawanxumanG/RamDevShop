@@ -3,7 +3,7 @@
     "id": "1",
     "name": "Bastasha",
     "description": "Traditional sugar drops, airy and sweet.",
-    "price": 100,
+    "price": 50,
     "weight": "250g",
     "category": "Sweets",
     "image": "batasha.jpg"
@@ -42,7 +42,7 @@
     "price": 100,
     "weight": "250g",
     "category": "Sweets",
-    "image": "peda2.jpg"
+    "image": "barfi.jpg"
   },
   {
     "id": "6",
@@ -93,7 +93,7 @@
     "id": "11",
     "name": "Thumbs Up",
     "description": "Refreshing Thumbs Up cola beverage.",
-    "price": 100,
+    "price": 95,
     "weight": "2.25L",
     "category": "Drinks",
     "image": "thumbsup.jpg"
@@ -102,7 +102,7 @@
     "id": "12",
     "name": "Coke",
     "description": "Classic Coca-Cola chilled beverage.",
-    "price": 100,
+    "price": 95,
     "weight": "2.25L",
     "category": "Drinks",
     "image": "coke.jpg"

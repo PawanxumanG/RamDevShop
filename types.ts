@@ -1,5 +1,6 @@
 
-export type Category = 'Sweets' | 'Cakes' | 'Snacks';
+// Fix: Added 'Drinks' to the Category union type to support beverage products
+export type Category = 'Sweets' | 'Cakes' | 'Snacks' | 'Drinks';
 
 export interface Product {
   id: string;

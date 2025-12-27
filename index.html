@@ -106,10 +106,12 @@
       const UPI_ID = "pawanponnam-1@okicici";
       
       const PRODUCTS = [
-        { id: '1', name: 'Special Kaju Katli', description: 'Premium cashew sweet made with pure ingredients.', price: 50, weight: '250g', category: 'Sweets', image: 'kajukatli.jpg' },
-        { id: '2', name: 'Ladoo', description: 'Soft and delicious laddoos prepared with fresh ingredients.', price: 50, weight: '250g', category: 'Sweets', image: 'ladoo.jpg' },
-        { id: '3', name: 'Motichoor Ladoo', description: 'Fine motichoor pearls cooked in pure ghee for rich taste.', price: 50, weight: '250g', category: 'Sweets', image: 'motichoor.jpg' },
-        { id: '4', name: 'Peda', description: 'Classic milk peda with authentic flavor and smooth texture.', price: 50, weight: '250g', category: 'Sweets', image: 'peda.jpg' }
+        { id: '1', name: 'Special Kaju Katli', description: 'Premium cashew sweet made with pure ingredients.', price: 50, weight: '250g', category: 'Sweets', image: 'images/Sweets/kajukatli.jpg' },
+        { id: '2', name: 'Ladoo', description: 'Soft and delicious laddoos prepared with fresh ingredients.', price: 50, weight: '250g', category: 'Sweets', image: 'images/Sweets/ladoo.jpg' },
+        { id: '3', name: 'Motichoor Ladoo', description: 'Fine motichoor pearls cooked in pure ghee for rich taste.', price: 50, weight: '250g', category: 'Sweets', image: 'images/Sweets/motichoor.jpg' },
+        { id: '4', name: 'Peda', description: 'Classic milk peda with authentic flavor and smooth texture.', price: 50, weight: '250g', category: 'Sweets', image: 'images/Sweets/peda.jpg' },
+        { id: '5', name: 'Thumbs Up', description: 'Refreshing Thumbs Up cola beverage.', price: 40, weight: '250ml', category: 'Drinks', image: 'images/Drinks/thumbsup.jpg' },
+        { id: '6', name: 'Coke', description: 'Classic Coca-Cola chilled beverage.', price: 40, weight: '250ml', category: 'Drinks', image: 'images/Drinks/coke.jpg' }
       ];
 
       const PLATFORM_FEE = 1;
@@ -600,12 +602,12 @@
               />
               <main role="main" className="flex-1 pt-20 pb-28 px-4 fade-in">
                 <nav className="flex gap-2 mb-6 overflow-x-auto no-scrollbar py-2">
-                  {['Sweets', 'Cakes', 'Snacks'].map(cat => (
+                  {['Sweets', 'Cakes', 'Snacks', 'Drinks'].map(cat => (
                     <button key={cat} onClick={() => setCategory(cat)} className={`px-6 py-2 rounded-full text-[11px] font-black uppercase tracking-widest shadow-sm whitespace-nowrap transition-all active:scale-95 ${category === cat ? 'bg-orange-600 text-white shadow-orange-100' : 'bg-white text-orange-900 border border-orange-100'}`}>{cat}</button>
                   ))}
                 </nav>
                 
-                {category === 'Sweets' ? (
+                {filtered.length > 0 ? (
                   <div className="product-grid">
                     {filtered.map(p => <ProductCard key={p.id} product={p} onAdd={(p) => setCart(prev => {
                       const exists = prev.find(i => i.id === p.id);

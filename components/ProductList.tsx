@@ -9,7 +9,8 @@ interface ProductListProps {
   onQuickBuy: (product: Product) => void;
 }
 
-const categories: Category[] = ['Sweets', 'Cakes', 'Snacks'];
+// Fix: Added 'Drinks' to the categories array for UI filtering
+const categories: Category[] = ['Sweets', 'Cakes', 'Snacks', 'Drinks'];
 
 const ProductList: React.FC<ProductListProps> = ({ products, onAddToCart, onQuickBuy }) => {
   const [selectedCategory, setSelectedCategory] = useState<Category | 'All'>('All');

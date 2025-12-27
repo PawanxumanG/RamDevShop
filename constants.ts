@@ -8,58 +8,101 @@ export const UPI_ID = "pawanponnam-1@okicici";
 export const PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Special Kaju Katli',
-    description: 'Premium cashew fudge made with real silver leaf.',
-    price: 50,
+    name: 'Bastasha',
+    description: 'Traditional sugar drops, airy and sweet.',
+    price: 100,
     category: 'Sweets',
-    image: 'images/Sweets/kajukatli.jpg'
+    image: 'images/Sweets/batasha.jpg',
+    weight: '250g'
   },
   {
     id: '2',
-    name: 'Ladoo',
-    description: 'Soft and delicious laddoos prepared with fresh ingredients.',
+    name: 'Motichoor',
+    description: 'Tiny pearls of gram flour fried in pure ghee.',
     price: 50,
     category: 'Sweets',
-    image: 'images/Sweets/ladoo.jpg'
+    image: 'images/Sweets/motichoor.jpg',
+    weight: '250g'
   },
   {
     id: '3',
-    name: 'Motichoor Ladoo',
-    description: 'Fine motichoor pearls cooked in pure ghee for rich taste.',
-    price: 50,
+    name: 'Ladoo',
+    description: 'Classic sweet balls made with high-quality ingredients.',
+    price: 100,
     category: 'Sweets',
-    image: 'images/Sweets/motichoor.jpg'
+    image: 'images/Sweets/ladoo.jpg',
+    weight: '250g'
   },
   {
     id: '4',
-    name: 'Peda',
-    description: 'Classic milk peda with authentic flavor and smooth texture.',
-    price: 50,
+    name: 'Malai Barfi',
+    description: 'Rich, creamy milk fudge with a soft texture.',
+    price: 100,
     category: 'Sweets',
-    image: 'images/Sweets/peda.jpg'
+    image: 'images/Sweets/malai_barfi.jpg',
+    weight: '250g'
   },
   {
     id: '5',
+    name: 'Barfi',
+    description: 'Traditional milk-based fudge, simple and tasty.',
+    price: 100,
+    category: 'Sweets',
+    image: 'images/Sweets/peda2.jpg',
+    weight: '250g'
+  },
+  {
+    id: '6',
+    name: 'Kaju Katli',
+    description: 'Premium cashew nut fudge, smooth and indulgent.',
+    price: 200,
+    category: 'Sweets',
+    image: 'images/Sweets/kajukatli.jpg',
+    weight: '250g'
+  },
+  {
+    id: '7',
+    name: 'Yellow Peda',
+    description: 'Saffron flavored traditional milk sweets.',
+    price: 100,
+    category: 'Sweets',
+    image: 'images/Sweets/yellow_peda.jpg',
+    weight: '250g'
+  },
+  {
+    id: '8',
+    name: 'Peda',
+    description: 'Authentic round milk sweets with a rich flavor.',
+    price: 100,
+    category: 'Sweets',
+    image: 'images/Sweets/peda2.jpg',
+    weight: '250g'
+  },
+  {
+    id: '9',
+    name: 'Mysore Pak',
+    description: 'Gram flour and ghee based sweet with a porous texture.',
+    price: 100,
+    category: 'Sweets',
+    image: 'images/Sweets/mysore_pak.jpg',
+    weight: '250g'
+  },
+  {
+    id: '10',
     name: 'Thumbs Up',
     description: 'Refreshing Thumbs Up cola beverage.',
     price: 40,
     category: 'Drinks',
-    image: 'images/Drinks/thumbsup.jpg'
+    image: 'images/Drinks/thumbsup.jpg',
+    weight: '250ml'
   },
   {
-    id: '6',
+    id: '11',
     name: 'Coke',
     description: 'Classic Coca-Cola chilled beverage.',
     price: 40,
     category: 'Drinks',
-    image: 'images/Drinks/coke.jpg'
-  },
-  {
-    id: '7',
-    name: 'Chocolate Truffle Cake',
-    description: 'Rich dark chocolate layers with silk ganache finish.',
-    price: 650,
-    category: 'Cakes',
-    image: 'images/Cakes/truffle.jpg'
+    image: 'images/Drinks/coke.jpg',
+    weight: '250ml'
   }
 ];

@@ -1,5 +1,4 @@
 {
-  "categories": ["Sweets", "Cakes", "Snacks", "Drinks"],
   "products": [
     {
       "id": "1",
@@ -56,11 +55,44 @@
       "image": "black_forest.jpg"
     }
   ],
+  "categories": [
+    "Sweets",
+    "Cakes",
+    "Snacks",
+    "Drinks"
+  ],
   "settings": {
+    "appName": "RamDev Shop",
     "minOrder": 100,
     "platformFee": 1,
     "deliveryFee": 5,
     "ownerWhatsApp": "918369258002",
-    "upiId": "paytmqr62rtez@ptys"
+    "upiId": "paytmqr62rtez@ptys",
+    "theme": {
+      "primary": "#ea580c",
+      "secondary": "#9a3412",
+      "background": "#fffaf0"
+    },
+    "homeContent": {
+      "banner": {
+        "show": true,
+        "title": "Buy 1KG Sweets\nGet A Coke FREE!",
+        "subtitle": "Festival Special",
+        "footer": "Valid on Bastasha & Motichoor",
+        "image": "https://images.unsplash.com/photo-1599785209707-a456fc1337bb?auto=format&fit=crop&q=80&w=800"
+      },
+      "quote": {
+        "show": true,
+        "text": "\"Sweetness is the universal language of love. Let every bite bring a smile to your heart.\"",
+        "author": "RamDev Specials"
+      },
+      "note": {
+        "show": true,
+        "title": "Note from Owner",
+        "text": "\"At RamDev Shop, purity is our religion. Every batch of sweets is prepared using 100% pure desi ghee and handpicked ingredients, just the way it was done generations ago. We invite you to taste the tradition.\"",
+        "ownerName": "Pawan Ponnam",
+        "ownerTitle": "Master Confectioner"
+      }
+    }
   }
 }

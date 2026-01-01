@@ -60,7 +60,7 @@
       .text-primary { color: var(--primary) !important; }
       .border-primary { border-color: var(--primary) !important; }
       
-      /* Toggle Switch CSS */
+      /* Toggle Switch Styling */
       .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
       .switch input { opacity: 0; width: 0; height: 0; }
       .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #e2e8f0; transition: .4s; border-radius: 24px; }
@@ -270,9 +270,9 @@
             )}
 
             {activeTab === 'home ui' && (
-              <div className="space-y-8">
+              <div className="space-y-8 animate-fadeIn">
                 {/* Banner Section */}
-                <div className="bg-white p-6 rounded-[32px] border space-y-4">
+                <div className="bg-white p-6 rounded-[32px] border space-y-4 shadow-sm">
                   <div className="flex justify-between items-center mb-2">
                     <h3 className="text-sm font-black text-gray-900 uppercase tracking-widest">Offer Banner</h3>
                     <label className="switch">
@@ -280,14 +280,16 @@
                       <span className="slider"></span>
                     </label>
                   </div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Title (Banner Main Text)</label><textarea className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none h-20" value={appData.settings.homeContent.banner.title} onChange={e => updateHomeContent('banner', 'title', e.target.value)} /></div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Subtitle (Top Badge)</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none" value={appData.settings.homeContent.banner.subtitle} onChange={e => updateHomeContent('banner', 'subtitle', e.target.value)} /></div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Footer (Small Text)</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none" value={appData.settings.homeContent.banner.footer} onChange={e => updateHomeContent('banner', 'footer', e.target.value)} /></div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Banner Image URL</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none" value={appData.settings.homeContent.banner.image} onChange={e => updateHomeContent('banner', 'image', e.target.value)} /></div>
+                  <div className="space-y-3">
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Banner Title (Multiline)</label><textarea className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none h-20 text-sm" value={appData.settings.homeContent.banner.title} onChange={e => updateHomeContent('banner', 'title', e.target.value)} /></div>
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Badge Text (Top)</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none text-sm" value={appData.settings.homeContent.banner.subtitle} onChange={e => updateHomeContent('banner', 'subtitle', e.target.value)} /></div>
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Footer Text (Small)</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none text-sm" value={appData.settings.homeContent.banner.footer} onChange={e => updateHomeContent('banner', 'footer', e.target.value)} /></div>
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Banner Image URL</label><input className="w-full p-4 bg-gray-50 rounded-xl font-mono text-xs border outline-none" value={appData.settings.homeContent.banner.image} onChange={e => updateHomeContent('banner', 'image', e.target.value)} /></div>
+                  </div>
                 </div>
 
                 {/* Quote Section */}
-                <div className="bg-white p-6 rounded-[32px] border space-y-4">
+                <div className="bg-white p-6 rounded-[32px] border space-y-4 shadow-sm">
                   <div className="flex justify-between items-center mb-2">
                     <h3 className="text-sm font-black text-gray-900 uppercase tracking-widest">Daily Quote</h3>
                     <label className="switch">
@@ -295,12 +297,14 @@
                       <span className="slider"></span>
                     </label>
                   </div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Quote Text</label><textarea className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none h-24 italic" value={appData.settings.homeContent.quote.text} onChange={e => updateHomeContent('quote', 'text', e.target.value)} /></div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Quote Author</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none" value={appData.settings.homeContent.quote.author} onChange={e => updateHomeContent('quote', 'author', e.target.value)} /></div>
+                  <div className="space-y-3">
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Quote Text</label><textarea className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none h-24 italic text-sm" value={appData.settings.homeContent.quote.text} onChange={e => updateHomeContent('quote', 'text', e.target.value)} /></div>
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Quote Author</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none text-sm" value={appData.settings.homeContent.quote.author} onChange={e => updateHomeContent('quote', 'author', e.target.value)} /></div>
+                  </div>
                 </div>
 
                 {/* Owner Note Section */}
-                <div className="bg-white p-6 rounded-[32px] border space-y-4">
+                <div className="bg-white p-6 rounded-[32px] border space-y-4 shadow-sm">
                   <div className="flex justify-between items-center mb-2">
                     <h3 className="text-sm font-black text-gray-900 uppercase tracking-widest">Owner's Note</h3>
                     <label className="switch">
@@ -308,10 +312,14 @@
                       <span className="slider"></span>
                     </label>
                   </div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Note Title</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none" value={appData.settings.homeContent.note.title} onChange={e => updateHomeContent('note', 'title', e.target.value)} /></div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Note Text</label><textarea className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none h-32" value={appData.settings.homeContent.note.text} onChange={e => updateHomeContent('note', 'text', e.target.value)} /></div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Owner Name</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none" value={appData.settings.homeContent.note.ownerName} onChange={e => updateHomeContent('note', 'ownerName', e.target.value)} /></div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Owner Title</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none" value={appData.settings.homeContent.note.ownerTitle} onChange={e => updateHomeContent('note', 'ownerTitle', e.target.value)} /></div>
+                  <div className="space-y-3">
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Note Title</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none text-sm" value={appData.settings.homeContent.note.title} onChange={e => updateHomeContent('note', 'title', e.target.value)} /></div>
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Body Text</label><textarea className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none h-32 text-sm" value={appData.settings.homeContent.note.text} onChange={e => updateHomeContent('note', 'text', e.target.value)} /></div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Owner Name</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none text-xs" value={appData.settings.homeContent.note.ownerName} onChange={e => updateHomeContent('note', 'ownerName', e.target.value)} /></div>
+                      <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 block">Owner Title</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none text-xs" value={appData.settings.homeContent.note.ownerTitle} onChange={e => updateHomeContent('note', 'ownerTitle', e.target.value)} /></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -333,49 +341,54 @@
             {activeTab === 'settings' && (
               <div className="bg-white p-8 rounded-[40px] shadow-soft border space-y-8 text-left">
                 <div className="space-y-4">
-                  <h3 className="text-xs font-black text-primary uppercase tracking-widest">Shop Config</h3>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">App Name</label><input type="text" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold text-gray-800" value={appData.settings.appName} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, appName: e.target.value}})} /></div>
+                  <h3 className="text-xs font-black text-primary uppercase tracking-widest">Shop Configuration</h3>
+                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">App Display Name</label><input type="text" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold text-gray-800" value={appData.settings.appName} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, appName: e.target.value}})} /></div>
                   <div className="grid grid-cols-2 gap-4">
                     <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">Platform Fee (₹)</label><input type="number" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold" value={appData.settings.platformFee} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, platformFee: parseInt(e.target.value) || 0}})} /></div>
                     <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">Delivery Fee (₹)</label><input type="number" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold" value={appData.settings.deliveryFee} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, deliveryFee: parseInt(e.target.value) || 0}})} /></div>
                   </div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">Min Order (₹)</label><input type="number" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold" value={appData.settings.minOrder} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, minOrder: parseInt(e.target.value) || 0}})} /></div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">Owner WhatsApp</label><input type="text" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold text-gray-800" value={appData.settings.ownerWhatsApp} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, ownerWhatsApp: e.target.value}})} /></div>
-                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">UPI ID</label><input type="text" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold text-gray-800" value={appData.settings.upiId} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, upiId: e.target.value}})} /></div>
+                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">Minimum Order for Free Delivery (₹)</label><input type="number" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold" value={appData.settings.minOrder} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, minOrder: parseInt(e.target.value) || 0}})} /></div>
+                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">Owner WhatsApp (91...)</label><input type="text" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold text-gray-800" value={appData.settings.ownerWhatsApp} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, ownerWhatsApp: e.target.value}})} /></div>
+                  <div><label className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 block ml-2">UPI ID for QR</label><input type="text" className="w-full p-4 bg-gray-50 rounded-2xl outline-none font-bold text-gray-800" value={appData.settings.upiId} onChange={e => onUpdateAppData({...appData, settings: {...appData.settings, upiId: e.target.value}})} /></div>
                 </div>
               </div>
             )}
 
             {activeTab === 'sync' && (
               <div className="bg-white p-8 rounded-[40px] shadow-soft border space-y-4">
-                <input className="w-full p-4 bg-gray-50 rounded-2xl outline-none text-xs font-mono" placeholder="GitHub Token" value={ghToken} onChange={e => setGhToken(e.target.value)} />
-                <input className="w-full p-4 bg-gray-50 rounded-2xl outline-none text-xs font-mono" placeholder="User/Repo" value={ghRepo} onChange={e => setGhRepo(e.target.value)} />
-                <button disabled={isSyncing} onClick={syncToGithub} className="w-full py-5 bg-primary text-white rounded-2xl font-black shadow-xl uppercase tracking-widest text-sm">{syncMessage || 'PUSH TO GITHUB'}</button>
+                <div className="bg-orange-50 p-4 rounded-2xl mb-4 text-center">
+                  <p className="text-[10px] font-black text-primary uppercase tracking-widest">Connect to GitHub for live updates</p>
+                </div>
+                <input className="w-full p-4 bg-gray-50 rounded-2xl outline-none text-xs font-mono border" placeholder="GitHub Access Token" value={ghToken} onChange={e => setGhToken(e.target.value)} />
+                <input className="w-full p-4 bg-gray-50 rounded-2xl outline-none text-xs font-mono border" placeholder="username/repository" value={ghRepo} onChange={e => setGhRepo(e.target.value)} />
+                <button disabled={isSyncing} onClick={syncToGithub} className="w-full py-5 bg-primary text-white rounded-2xl font-black shadow-xl uppercase tracking-widest text-sm active:scale-95 transition-all">
+                  {syncMessage || (isSyncing ? 'SYNCING...' : 'PUSH CHANGES TO GITHUB')}
+                </button>
               </div>
             )}
 
             {editingProduct && (
               <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end justify-center p-4">
-                <div className="bg-white w-full max-w-md rounded-t-[40px] p-8 animate-slideUp overflow-y-auto max-h-[90vh]">
-                  <h3 className="text-xl font-black mb-8 uppercase text-gray-900 tracking-tighter">{editingProduct.isNew ? 'NEW' : 'EDIT'} PRODUCT</h3>
+                <div className="bg-white w-full max-w-md rounded-t-[40px] p-8 animate-slideUp overflow-y-auto max-h-[90vh] shadow-2xl">
+                  <h3 className="text-xl font-black mb-8 uppercase text-gray-900 tracking-tighter">{editingProduct.isNew ? 'CREATE NEW' : 'EDIT'} PRODUCT</h3>
                   <div className="space-y-4 text-left">
-                    <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">NAME</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border" value={editingProduct.name} onChange={e => setEditingProduct({...editingProduct, name: e.target.value})} /></div>
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">NAME</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border focus:ring-2 focus:ring-orange-200 outline-none" value={editingProduct.name} onChange={e => setEditingProduct({...editingProduct, name: e.target.value})} /></div>
                     <div className="grid grid-cols-2 gap-4">
-                      <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">PRICE (₹)</label><input type="number" className="w-full p-4 bg-gray-50 rounded-xl font-bold border" value={editingProduct.price} onChange={e => setEditingProduct({...editingProduct, price: parseInt(e.target.value) || 0})} /></div>
-                      <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">WEIGHT</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border" value={editingProduct.weight} onChange={e => setEditingProduct({...editingProduct, weight: e.target.value})} /></div>
+                      <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">PRICE (₹)</label><input type="number" className="w-full p-4 bg-gray-50 rounded-xl font-bold border focus:ring-2 focus:ring-orange-200 outline-none" value={editingProduct.price} onChange={e => setEditingProduct({...editingProduct, price: parseInt(e.target.value) || 0})} /></div>
+                      <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">WEIGHT</label><input className="w-full p-4 bg-gray-50 rounded-xl font-bold border focus:ring-2 focus:ring-orange-200 outline-none" value={editingProduct.weight} onChange={e => setEditingProduct({...editingProduct, weight: e.target.value})} /></div>
                     </div>
-                    <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">CATEGORY</label><select className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none" value={editingProduct.category} onChange={e => setEditingProduct({...editingProduct, category: e.target.value})}>
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">CATEGORY</label><select className="w-full p-4 bg-gray-50 rounded-xl font-bold border outline-none focus:ring-2 focus:ring-orange-200" value={editingProduct.category} onChange={e => setEditingProduct({...editingProduct, category: e.target.value})}>
                       {appData.categories.map((c) => <option key={c} value={c}>{c}</option>)}
                     </select></div>
-                    <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">IMAGE URL</label><input className="w-full p-4 bg-gray-50 rounded-xl font-mono text-xs border" value={editingProduct.image} onChange={e => setEditingProduct({...editingProduct, image: e.target.value})} /></div>
-                    <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">DESCRIPTION</label><textarea className="w-full p-4 bg-gray-50 rounded-xl font-medium border h-24" placeholder="About this product..." value={editingProduct.description} onChange={e => setEditingProduct({...editingProduct, description: e.target.value})} /></div>
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">IMAGE URL</label><input className="w-full p-4 bg-gray-50 rounded-xl font-mono text-xs border focus:ring-2 focus:ring-orange-200 outline-none" value={editingProduct.image} onChange={e => setEditingProduct({...editingProduct, image: e.target.value})} /></div>
+                    <div><label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">DESCRIPTION</label><textarea className="w-full p-4 bg-gray-50 rounded-xl font-medium border h-24 focus:ring-2 focus:ring-orange-200 outline-none" placeholder="About this product..." value={editingProduct.description} onChange={e => setEditingProduct({...editingProduct, description: e.target.value})} /></div>
                     <div className="pt-6 flex gap-3">
-                      <button onClick={() => setEditingProduct(null)} className="flex-1 py-4 bg-gray-100 text-gray-400 rounded-2xl font-black uppercase text-xs tracking-widest">CANCEL</button>
+                      <button onClick={() => setEditingProduct(null)} className="flex-1 py-4 bg-gray-100 text-gray-400 rounded-2xl font-black uppercase text-xs tracking-widest active:scale-95 transition-all">CANCEL</button>
                       <button onClick={() => {
                         const newList = editingProduct.isNew ? [...appData.products, { ...editingProduct, id: Date.now().toString(), isNew: undefined }] : appData.products.map((p) => p.id === editingProduct.id ? editingProduct : p);
                         onUpdateAppData({...appData, products: newList});
                         setEditingProduct(null);
-                      }} className="flex-2 py-4 bg-primary text-white rounded-2xl font-black uppercase text-xs shadow-lg tracking-widest">SAVE</button>
+                      }} className="flex-2 py-4 bg-primary text-white rounded-2xl font-black uppercase text-xs shadow-lg tracking-widest active:scale-95 transition-all">SAVE ITEM</button>
                     </div>
                   </div>
                 </div>
@@ -404,27 +417,31 @@
         useEffect(() => {
           const init = async () => {
             try {
-              const savedData = localStorage.getItem('ramdev_v15_data');
+              const savedData = localStorage.getItem('ramdev_v16_data');
               if (savedData) {
                 const parsed = JSON.parse(savedData);
-                // Ensure homeContent exists for old data migrations
+                // Schema Migration for homeContent
                 if (!parsed.settings.homeContent) parsed.settings.homeContent = DEFAULT_HOME_CONTENT;
                 setAppData(parsed);
               }
               const res = await fetch('./products.json?v=' + Date.now());
               if (res.ok) {
                 const remote = await res.json();
-                setAppData(prev => ({ ...prev, ...remote }));
+                setAppData(prev => ({ 
+                  ...prev, 
+                  ...remote,
+                  settings: { ...prev.settings, ...remote.settings, homeContent: remote.settings.homeContent || prev.settings.homeContent } 
+                }));
               }
             } catch (err) {} finally {
-              const storedProfile = localStorage.getItem('ramdev_profile_v15');
+              const storedProfile = localStorage.getItem('ramdev_profile_v16');
               if (storedProfile) { 
                 setProfile(JSON.parse(storedProfile));
                 setView('home'); 
               } else {
                 setView('onboarding');
               }
-              const storedOrders = localStorage.getItem('ramdev_orders_v15');
+              const storedOrders = localStorage.getItem('ramdev_orders_v16');
               if (storedOrders) setOrders(JSON.parse(storedOrders));
               setTimeout(() => {
                 const loader = document.getElementById('loader');
@@ -438,7 +455,7 @@
 
         useEffect(() => {
           if (!isLoading) {
-            localStorage.setItem('ramdev_v15_data', JSON.stringify(appData));
+            localStorage.setItem('ramdev_v16_data', JSON.stringify(appData));
             const root = document.documentElement;
             root.style.setProperty('--primary', appData.settings.theme.primary);
           }
@@ -464,7 +481,7 @@
           const newOrder = { id: Date.now().toString(), date: new Date().toISOString(), cart: [...cart], cartTotal, platformFee: appData.settings.platformFee, deliveryFee, totalWithFees, profile, deliveryMethod, paymentMethod };
           const updatedOrders = [newOrder, ...orders];
           setOrders(updatedOrders);
-          localStorage.setItem('ramdev_orders_v15', JSON.stringify(updatedOrders));
+          localStorage.setItem('ramdev_orders_v16', JSON.stringify(updatedOrders));
           const msg = `🛍️ *${appData.settings.appName.toUpperCase()} ORDER*\n👤 *Customer:* ${profile.fullName}\n📞 *Phone:* ${profile.phone}\n📍 *Address:* ${profile.address}\n\n🍰 *Items:*\n${cart.map(i => `• ${i.name} (x${i.quantity}) - ₹${i.price * i.quantity}`).join('\n')}\n\n🔥 *Grand Total: ₹${totalWithFees}*`;
           window.location.href = `https://api.whatsapp.com/send?phone=${appData.settings.ownerWhatsApp}&text=${encodeURIComponent(msg)}`;
           setCart([]); setView('orders');
@@ -473,13 +490,13 @@
         if (isLoading) return null;
 
         if (view === 'admin_login') return (
-          <div className="min-h-screen bg-white flex flex-col items-center justify-center p-8 text-center">
+          <div className="min-h-screen bg-white flex flex-col items-center justify-center p-8 text-center animate-fadeIn">
             <h1 className="text-3xl font-black mb-8 uppercase tracking-tighter">STAFF ACCESS</h1>
-            <input type="password" id="admin-pin" placeholder="PIN" className="w-full p-5 bg-gray-50 rounded-2xl border text-center font-bold tracking-[0.5em] mb-4 outline-none" />
+            <input type="password" id="admin-pin" placeholder="••••••••" className="w-full p-5 bg-gray-50 rounded-2xl border text-center font-bold tracking-[0.5em] mb-4 outline-none focus:ring-2 focus:ring-orange-200" />
             <button onClick={() => {
               const pin = document.getElementById('admin-pin').value;
               if (pin === ADMIN_PASSWORD) setView('admin_panel'); else alert('Wrong PIN!');
-            }} className="w-full py-5 bg-primary text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl">LOGIN</button>
+            }} className="w-full py-5 bg-primary text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl active:scale-95 transition-all">LOGIN</button>
             <button onClick={() => setView('home')} className="mt-8 text-gray-400 font-bold uppercase text-xs">Cancel</button>
           </div>
         );
@@ -496,8 +513,8 @@
               <textarea className="w-full p-4 bg-gray-50 rounded-2xl border outline-none font-bold" defaultValue={profile?.address || ''} placeholder="Delivery Address" id="reg-address" rows={3} />
               <button onClick={() => {
                 const p = { fullName: document.getElementById('reg-name').value, phone: document.getElementById('reg-phone').value, address: document.getElementById('reg-address').value };
-                if (p.fullName && p.phone && p.address) { setProfile(p); localStorage.setItem('ramdev_profile_v15', JSON.stringify(p)); setView('home'); }
-              }} className="w-full py-5 bg-primary text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl">Save & Shop</button>
+                if (p.fullName && p.phone && p.address) { setProfile(p); localStorage.setItem('ramdev_profile_v16', JSON.stringify(p)); setView('home'); }
+              }} className="w-full py-5 bg-primary text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl active:scale-95 transition-all">Save & Shop</button>
             </div>
           </div>
         );
@@ -515,16 +532,16 @@
               <div className="flex gap-2">
                 <button onClick={() => setView('orders')} className="w-10 h-10 flex items-center justify-center text-gray-400"><i className="fas fa-history text-lg"></i></button>
                 <button onClick={() => setView('cart')} className="relative w-10 h-10 flex items-center justify-center text-gray-700">
-                  {cart.length > 0 && <span className="absolute top-0 right-0 bg-red-600 text-white text-[8px] font-black w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">{cart.length}</span>}
+                  {cart.length > 0 && <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[8px] font-black w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">{cart.length}</span>}
                   <i className="fas fa-shopping-basket text-xl"></i>
                 </button>
               </div>
             </header>
 
-            {/* Content Views */}
+            {/* Main Application Logic */}
             <main className="pt-20 pb-40 px-4 fade-in max-w-md mx-auto">
               {view === 'home' && (
-                <div className="space-y-8 fade-in">
+                <div className="space-y-8 animate-fadeIn">
                   {/* Offer Banner */}
                   {homeContent.banner.show && (
                     <div className="relative w-full h-48 rounded-[32px] overflow-hidden shadow-xl bg-gradient-to-br from-orange-500 to-orange-700">
@@ -565,12 +582,12 @@
                     </div>
                   )}
 
-                  <button onClick={() => setView('catalog')} className="w-full py-5 bg-primary text-white rounded-[24px] font-black shadow-xl uppercase tracking-widest text-sm active:scale-95 transition-all">Explore Full Menu</button>
+                  <button onClick={() => setView('catalog')} className="w-full py-5 bg-primary text-white rounded-[24px] font-black shadow-xl uppercase tracking-widest text-sm active:scale-95 transition-all">Explore Full Menu <i className="fas fa-chevron-right ml-2 text-xs"></i></button>
                 </div>
               )}
 
               {view === 'catalog' && (
-                <>
+                <div className="animate-fadeIn">
                   <nav className="flex gap-2 mb-8 overflow-x-auto no-scrollbar py-2">
                     {appData.categories.map(cat => (
                       <button key={cat} onClick={() => setCategory(cat)} className={`px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all flex-shrink-0 shadow-sm ${category === cat ? 'bg-primary text-white' : 'bg-white text-orange-900 border'}`}>{cat}</button>
@@ -580,14 +597,14 @@
                     {appData.products.filter(p => p.category === category).map(p => {
                       const qty = getItemQty(p.id);
                       return (
-                        <div key={p.id} className="bg-white rounded-[28px] overflow-hidden shadow-soft border flex flex-col h-full text-left">
+                        <div key={p.id} className="bg-white rounded-[28px] overflow-hidden shadow-soft border flex flex-col h-full text-left transition-transform active:scale-[0.98]">
                           <div className="h-40 bg-gray-100 relative overflow-hidden group">
-                            <img src={p.image} className="w-full h-full object-cover transition-transform group-hover:scale-110" />
+                            <img src={p.image} className="w-full h-full object-cover transition-transform group-hover:scale-110" onError={e=>e.target.src='https://via.placeholder.com/300?text=Sweet'} />
                             <div className="absolute bottom-3 right-3">
                               {qty === 0 ? (
                                 <button onClick={() => updateCart(p, 1)} className="px-5 py-2 bg-white text-primary font-black text-[10px] rounded-xl shadow-xl border">ADD</button>
                               ) : (
-                                <div className="flex items-center bg-white rounded-xl border shadow-xl overflow-hidden">
+                                <div className="flex items-center bg-white rounded-xl border shadow-xl overflow-hidden animate-slideUp">
                                   <button onClick={() => updateCart(p, -1)} className="px-3 py-2 text-primary"><i className="fas fa-minus text-[8px]"></i></button>
                                   <span className="px-2 text-xs font-black text-orange-900">{qty}</span>
                                   <button onClick={() => updateCart(p, 1)} className="px-3 py-2 text-primary"><i className="fas fa-plus text-[8px]"></i></button>
@@ -604,81 +621,87 @@
                       );
                     })}
                   </div>
-                </>
+                </div>
               )}
 
               {view === 'cart' && (
-                <div className="fade-in">
+                <div className="fade-in animate-fadeIn">
                   <h2 className="text-2xl font-black uppercase mb-8 tracking-tighter">YOUR CART</h2>
                   <div className="space-y-4 mb-8">
                     {cart.map(item => (
-                      <div key={item.id} className="flex gap-4 p-4 bg-orange-50/20 rounded-[32px] border">
-                        <img src={item.image} className="w-20 h-20 object-cover rounded-2xl" />
+                      <div key={item.id} className="flex gap-4 p-4 bg-orange-50/20 rounded-[32px] border transition-all">
+                        <img src={item.image} className="w-20 h-20 object-cover rounded-2xl" onError={e=>e.target.src='https://via.placeholder.com/150?text=Item'} />
                         <div className="flex-1">
                           <h4 className="font-black text-gray-900 text-sm mb-1">{item.name}</h4>
                           <p className="text-primary font-black text-lg">₹{item.price * item.quantity}</p>
                           <div className="flex items-center gap-4 mt-2">
-                            <button onClick={() => updateCart(item, -1)} className="w-8 h-8 bg-white rounded-xl border flex items-center justify-center text-xs"><i className="fas fa-minus"></i></button>
+                            <button onClick={() => updateCart(item, -1)} className="w-8 h-8 bg-white rounded-xl border flex items-center justify-center text-xs active:scale-90 transition-transform"><i className="fas fa-minus"></i></button>
                             <span className="font-black text-gray-900">{item.quantity}</span>
-                            <button onClick={() => updateCart(item, 1)} className="w-8 h-8 bg-white rounded-xl border flex items-center justify-center text-xs"><i className="fas fa-plus"></i></button>
+                            <button onClick={() => updateCart(item, 1)} className="w-8 h-8 bg-white rounded-xl border flex items-center justify-center text-xs active:scale-90 transition-transform"><i className="fas fa-plus"></i></button>
                           </div>
                         </div>
                       </div>
                     ))}
                   </div>
-                  <div className="bg-gray-50 p-8 rounded-[40px] space-y-3 mb-12 border">
-                    <div className="flex justify-between text-xs font-bold text-gray-500 uppercase"><span>Subtotal</span><span className="text-gray-900">₹{cartTotal}</span></div>
-                    <div className="flex justify-between text-xs font-bold text-gray-500 uppercase"><span>Fees</span><span className="text-gray-900">₹{appData.settings.platformFee + deliveryFee}</span></div>
-                    <div className="border-t pt-4 flex justify-between items-center mt-2">
-                      <span className="font-black text-gray-900 uppercase text-xs">Total Amount</span>
-                      <span className="text-2xl font-black text-primary">₹{totalWithFees}</span>
-                    </div>
-                  </div>
-                  <button onClick={() => setView('checkout')} className="w-full py-5 bg-primary text-white rounded-[24px] font-black shadow-xl uppercase tracking-widest text-sm">Proceed</button>
+                  {cart.length === 0 ? (
+                    <div className="py-20 text-center text-gray-300 font-bold uppercase text-xs tracking-widest">Your cart is empty</div>
+                  ) : (
+                    <>
+                      <div className="bg-gray-50 p-8 rounded-[40px] space-y-3 mb-12 border">
+                        <div className="flex justify-between text-xs font-bold text-gray-500 uppercase"><span>Subtotal</span><span className="text-gray-900">₹{cartTotal}</span></div>
+                        <div className="flex justify-between text-xs font-bold text-gray-500 uppercase"><span>Fees & Delivery</span><span className="text-gray-900">₹{appData.settings.platformFee + deliveryFee}</span></div>
+                        <div className="border-t pt-4 flex justify-between items-center mt-2">
+                          <span className="font-black text-gray-900 uppercase text-xs">Total Amount</span>
+                          <span className="text-2xl font-black text-primary">₹{totalWithFees}</span>
+                        </div>
+                      </div>
+                      <button onClick={() => setView('checkout')} className="w-full py-5 bg-primary text-white rounded-[24px] font-black shadow-xl uppercase tracking-widest text-sm active:scale-95 transition-all">Proceed to Checkout</button>
+                    </>
+                  )}
                 </div>
               )}
 
               {view === 'checkout' && (
-                <div className="fade-in">
-                  <h2 className="text-2xl font-black uppercase mb-8 tracking-tighter">Confirmation</h2>
-                  <div className="space-y-10">
+                <div className="fade-in animate-fadeIn">
+                  <h2 className="text-2xl font-black uppercase mb-8 tracking-tighter text-left">Confirm Order</h2>
+                  <div className="space-y-10 pb-10">
                     <div>
                       <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest block mb-4 ml-2">Delivery Option</label>
-                      <div className="grid grid-cols-2 gap-4">
-                        <button onClick={() => setDeliveryMethod('home')} className={`p-6 rounded-[28px] border-2 flex flex-col items-center gap-3 ${deliveryMethod === 'home' ? 'border-primary bg-orange-50 text-orange-900' : 'border-gray-50 bg-gray-50 text-gray-400'}`}><i className="fas fa-truck text-2xl"></i><span className="font-black text-[10px] uppercase tracking-widest">Home</span></button>
-                        <button onClick={() => setDeliveryMethod('pickup')} className={`p-6 rounded-[28px] border-2 flex flex-col items-center gap-3 ${deliveryMethod === 'pickup' ? 'border-primary bg-orange-50 text-orange-900' : 'border-gray-50 bg-gray-50 text-gray-400'}`}><i className="fas fa-store text-2xl"></i><span className="font-black text-[10px] uppercase tracking-widest">Store</span></button>
+                      <div className="grid grid-cols-2 gap-4 text-center">
+                        <button onClick={() => setDeliveryMethod('home')} className={`p-6 rounded-[28px] border-2 flex flex-col items-center gap-3 transition-all ${deliveryMethod === 'home' ? 'border-primary bg-orange-50 text-orange-900 shadow-md' : 'border-gray-50 bg-gray-50 text-gray-400'}`}><i className="fas fa-truck text-2xl"></i><span className="font-black text-[10px] uppercase tracking-widest">Home Delivery</span></button>
+                        <button onClick={() => setDeliveryMethod('pickup')} className={`p-6 rounded-[28px] border-2 flex flex-col items-center gap-3 transition-all ${deliveryMethod === 'pickup' ? 'border-primary bg-orange-50 text-orange-900 shadow-md' : 'border-gray-50 bg-gray-50 text-gray-400'}`}><i className="fas fa-store text-2xl"></i><span className="font-black text-[10px] uppercase tracking-widest">Store Pickup</span></button>
                       </div>
                     </div>
                     <div>
-                      <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest block mb-4 ml-2">Payment</label>
+                      <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest block mb-4 ml-2">Payment Method</label>
                       <div className="space-y-4">
-                        <button onClick={() => setPaymentMethod('cod')} className={`w-full p-6 rounded-[28px] border-2 flex items-center gap-5 ${paymentMethod === 'cod' ? 'border-primary bg-orange-50 text-orange-900' : 'border-gray-50 bg-gray-50 text-gray-400'}`}><i className="fas fa-money-bill-wave text-2xl"></i><span className="font-black text-xs uppercase tracking-widest">Cash on Delivery</span></button>
-                        <button onClick={() => setPaymentMethod('upi')} className={`w-full p-6 rounded-[28px] border-2 flex items-center gap-5 ${paymentMethod === 'upi' ? 'border-primary bg-orange-50 text-orange-900' : 'border-gray-50 bg-gray-50 text-gray-400'}`}><i className="fas fa-qrcode text-2xl"></i><span className="font-black text-xs uppercase tracking-widest">UPI QR</span></button>
+                        <button onClick={() => setPaymentMethod('cod')} className={`w-full p-6 rounded-[28px] border-2 flex items-center gap-5 transition-all ${paymentMethod === 'cod' ? 'border-primary bg-orange-50 text-orange-900 shadow-md' : 'border-gray-50 bg-gray-50 text-gray-400'}`}><i className="fas fa-money-bill-wave text-2xl"></i><span className="font-black text-xs uppercase tracking-widest">Cash on Delivery</span></button>
+                        <button onClick={() => setPaymentMethod('upi')} className={`w-full p-6 rounded-[28px] border-2 flex items-center gap-5 transition-all ${paymentMethod === 'upi' ? 'border-primary bg-orange-50 text-orange-900 shadow-md' : 'border-gray-50 bg-gray-50 text-gray-400'}`}><i className="fas fa-qrcode text-2xl"></i><span className="font-black text-xs uppercase tracking-widest">Scan UPI QR</span></button>
                       </div>
                     </div>
                     {paymentMethod === 'upi' && (
-                      <div className="bg-white p-8 rounded-[40px] border-2 border-dashed border-orange-200 text-center">
-                         <div className="bg-red-50 p-4 rounded-2xl mb-6 border border-red-100 animate-pulse"><p className="text-[11px] font-black text-red-600 uppercase leading-tight">Send screenshot after pay!</p></div>
-                         <img src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=${appData.settings.upiId}%26pn=${encodeURIComponent(appData.settings.appName)}%26am=${totalWithFees}%26cu=INR`} className="mx-auto w-48 h-48 rounded-2xl shadow-xl mb-4" />
-                         <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Total: ₹{totalWithFees}</p>
+                      <div className="bg-white p-8 rounded-[40px] border-2 border-dashed border-orange-200 text-center animate-slideUp">
+                         <div className="bg-red-50 p-4 rounded-2xl mb-6 border border-red-100 animate-pulse"><p className="text-[11px] font-black text-red-600 uppercase leading-tight">Must send screenshot after payment!</p></div>
+                         <img src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=${appData.settings.upiId}%26pn=${encodeURIComponent(appData.settings.appName)}%26am=${totalWithFees}%26cu=INR`} className="mx-auto w-48 h-48 rounded-2xl shadow-xl mb-4 border-4 border-white" />
+                         <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Amount: ₹{totalWithFees}</p>
                       </div>
                     )}
                   </div>
-                  <div className="mt-12">
-                     <button onClick={handleOrderConfirm} className="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-xl flex items-center justify-center gap-3 uppercase tracking-widest text-sm">PLACE ORDER <i className="fab fa-whatsapp text-2xl"></i></button>
+                  <div className="mt-8">
+                     <button onClick={handleOrderConfirm} className="w-full bg-green-600 text-white font-black py-5 rounded-[24px] shadow-xl flex items-center justify-center gap-3 uppercase tracking-widest text-sm active:scale-95 transition-all">PLACE ORDER ON WHATSAPP <i className="fab fa-whatsapp text-2xl"></i></button>
                   </div>
                 </div>
               )}
 
               {view === 'orders' && (
-                <div className="fade-in">
-                  <h2 className="text-2xl font-black uppercase mb-8 tracking-tighter">MY ORDERS</h2>
-                  {orders.length === 0 ? <div className="py-20 text-center text-gray-300 font-bold uppercase text-xs tracking-widest">No orders yet</div> : (
+                <div className="fade-in animate-fadeIn">
+                  <h2 className="text-2xl font-black uppercase mb-8 tracking-tighter">ORDER HISTORY</h2>
+                  {orders.length === 0 ? <div className="py-20 text-center text-gray-300 font-bold uppercase text-xs tracking-widest">No previous orders</div> : (
                     <div className="space-y-6">
                       {orders.map(order => (
-                        <div key={order.id} className="bg-white rounded-[32px] border shadow-soft p-6 flex justify-between items-center">
+                        <div key={order.id} className="bg-white rounded-[32px] border shadow-soft p-6 flex justify-between items-center transition-transform hover:scale-[1.02]">
                           <div><span className="text-[10px] font-black text-orange-600 uppercase tracking-widest block mb-1">#{order.id.slice(-6).toUpperCase()}</span><h4 className="text-xs font-bold text-gray-900">{new Date(order.date).toLocaleDateString()}</h4><span className="text-xl font-black text-primary">₹{order.totalWithFees}</span></div>
-                          <button onClick={() => generateInvoicePDF(order, appData.settings.appName)} className="w-12 h-12 bg-orange-50 text-primary rounded-2xl flex items-center justify-center shadow-sm"><i className="fas fa-file-invoice text-lg"></i></button>
+                          <button onClick={() => generateInvoicePDF(order, appData.settings.appName)} className="w-12 h-12 bg-orange-50 text-primary rounded-2xl flex items-center justify-center shadow-sm active:scale-90 transition-transform"><i className="fas fa-file-invoice text-lg"></i></button>
                         </div>
                       ))}
                     </div>
@@ -688,34 +711,35 @@
             </main>
 
             {/* Bottom Footer Navigation */}
-            <footer className="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-40 bg-white border-t border-orange-50 px-6 py-4 flex justify-between items-center shadow-soft">
-              <button onClick={() => setView('catalog')} className={`flex flex-col items-center gap-1 ${view === 'catalog' ? 'text-primary' : 'text-gray-400'}`}>
+            <footer className="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-40 bg-white border-t border-orange-50 px-6 py-4 flex justify-between items-center shadow-[0_-5px_20px_rgba(0,0,0,0.05)]">
+              <button onClick={() => setView('catalog')} className={`flex flex-col items-center gap-1 transition-colors ${view === 'catalog' ? 'text-primary' : 'text-gray-400'}`}>
                 <i className="fas fa-th-large text-xl"></i>
                 <span className="text-[9px] font-black uppercase tracking-widest">Menu</span>
               </button>
-              <div onClick={() => setView('home')} className={`w-14 h-14 rounded-full -mt-10 flex items-center justify-center shadow-xl border-4 border-white cursor-pointer transition-transform hover:scale-110 active:scale-95 ${view === 'home' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-400'}`}>
+              <div onClick={() => setView('home')} className={`w-14 h-14 rounded-full -mt-10 flex items-center justify-center shadow-xl border-4 border-white cursor-pointer transition-all hover:scale-110 active:scale-95 ${view === 'home' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-400'}`}>
                 <i className="fas fa-home text-xl"></i>
               </div>
-              <button onClick={() => setShowAbout(true)} className={`flex flex-col items-center gap-1 ${showAbout ? 'text-primary' : 'text-gray-400'}`}>
+              <button onClick={() => setShowAbout(true)} className={`flex flex-col items-center gap-1 transition-colors ${showAbout ? 'text-primary' : 'text-gray-400'}`}>
                 <i className="fas fa-info-circle text-xl"></i>
                 <span className="text-[9px] font-black uppercase tracking-widest">About</span>
               </button>
             </footer>
 
-            {/* Sticky Floating View Cart */}
+            {/* Sticky Floating Cart Indicator */}
             {cart.length > 0 && (view === 'catalog' || view === 'home') && (
               <div className="fixed bottom-24 left-4 right-4 max-w-md mx-auto animate-slideUp">
-                <button onClick={() => setView('cart')} className="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-xl flex justify-between px-8 items-center uppercase tracking-widest text-xs">
-                  <span>{cart.length} Items</span>
-                  <span>View Cart • ₹{totalWithFees} <i className="fas fa-arrow-right ml-2"></i></span>
+                <button onClick={() => setView('cart')} className="w-full bg-primary text-white font-black py-5 rounded-[24px] shadow-xl flex justify-between px-8 items-center uppercase tracking-widest text-xs active:scale-[0.98] transition-all">
+                  <span>{cart.length} {cart.length === 1 ? 'Item' : 'Items'}</span>
+                  <span>View Cart • ₹{totalWithFees} <i className="fas fa-arrow-right ml-2 text-[10px]"></i></span>
                 </button>
               </div>
             )}
 
             {/* About Modal */}
             {showAbout && (
-              <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end justify-center">
-                <div className="bg-white w-full max-w-md rounded-t-[40px] p-8 animate-slideUp">
+              <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end justify-center p-0">
+                <div onClick={() => setShowAbout(false)} className="absolute inset-0"></div>
+                <div className="bg-white w-full max-w-md rounded-t-[40px] p-8 animate-slideUp relative shadow-2xl">
                   <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-8"></div>
                   <div className="text-center mb-8">
                     <div className="w-20 h-20 bg-orange-100 rounded-3xl mx-auto flex items-center justify-center text-primary text-3xl mb-4 shadow-inner"><i className="fas fa-shop"></i></div>
@@ -723,10 +747,12 @@
                     <p className="text-orange-600 font-bold text-xs uppercase tracking-widest">Premium Sweets & Cakes</p>
                   </div>
                   <div className="space-y-4 mb-10 text-center">
-                    <p className="text-sm text-gray-600">Premium quality traditional sweets made with pure ghee and lots of love.</p>
-                    <button onClick={() => { setShowAbout(false); setView('admin_login'); }} className="text-[10px] text-gray-300 font-black uppercase tracking-widest border-b border-gray-100 pb-1 hover:text-primary transition-colors">Staff Access Only</button>
+                    <p className="text-sm text-gray-600 leading-relaxed font-medium">Authentic, pure desi ghee sweets prepared with traditional methods. Satisfaction in every bite.</p>
+                    <div className="border-t pt-4">
+                      <button onClick={() => { setShowAbout(false); setView('admin_login'); }} className="text-[10px] text-gray-300 font-black uppercase tracking-[0.2em] border-b border-gray-100 pb-1 hover:text-primary transition-colors">Staff Access / Admin Login</button>
+                    </div>
                   </div>
-                  <button onClick={() => setShowAbout(false)} className="w-full bg-primary text-white font-black py-4 rounded-2xl shadow-xl uppercase tracking-widest text-xs">Close</button>
+                  <button onClick={() => setShowAbout(false)} className="w-full bg-primary text-white font-black py-4 rounded-2xl shadow-xl uppercase tracking-widest text-xs active:scale-95 transition-all">Return to App</button>
                 </div>
               </div>
             )}

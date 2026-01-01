@@ -1,0 +1,1 @@
+// Consistently with current architecture, all logic is managed in index.html to ensure reliable delivery via GitHub Pages.

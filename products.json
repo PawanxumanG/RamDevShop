@@ -98,6 +98,15 @@
       "category": "Sweets",
       "image": "mysore_pak.jpg",
       "description": ""
+    },
+    {
+      "id": "1767290760586",
+      "name": "Peda",
+      "price": 100,
+      "weight": "250",
+      "category": "Sweets",
+      "image": "peda.jpg",
+      "description": ""
     }
   ],
   "categories": [

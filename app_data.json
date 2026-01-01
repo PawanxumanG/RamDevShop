@@ -125,7 +125,7 @@
     "Drinks"
   ],
   "settings": {
-    "minOrder": 50,
+    "minOrder": 100,
     "platformFee": 1,
     "deliveryFee": 10,
     "ownerWhatsApp": "918369258002",

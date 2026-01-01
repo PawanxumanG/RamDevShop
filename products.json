@@ -3,7 +3,7 @@
     "id": "1",
     "name": "Bastasha",
     "description": "Traditional sugar drops, airy and sweet.",
-    "price": 50,
+    "price": 100,
     "weight": "250g",
     "category": "Sweets",
     "image": "batasha.jpg"
@@ -42,7 +42,7 @@
     "price": 100,
     "weight": "250g",
     "category": "Sweets",
-    "image": "peda.jpg"
+    "image": "peda2.jpg"
   },
   {
     "id": "6",

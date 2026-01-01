@@ -107,6 +107,15 @@
       "weight": "2.25L",
       "category": "Drinks",
       "image": "coke.jpg"
+    },
+    {
+      "id": "1767254941042",
+      "name": "Black Forest ",
+      "price": 600,
+      "weight": "1kg",
+      "category": "Cakes",
+      "image": "black_forest.jpg",
+      "description": "Mast cake hai lelo"
     }
   ],
   "categories": [

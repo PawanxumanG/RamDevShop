@@ -80,6 +80,15 @@
       "category": "Sweets",
       "image": "yellow_peda.jpg",
       "description": ""
+    },
+    {
+      "id": "1767290621704",
+      "name": "Barfi",
+      "price": 100,
+      "weight": "250gm",
+      "category": "Sweets",
+      "image": "barfi.jpg",
+      "description": ""
     }
   ],
   "categories": [

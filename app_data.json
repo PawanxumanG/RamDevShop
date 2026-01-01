@@ -127,7 +127,7 @@
   "settings": {
     "minOrder": 50,
     "platformFee": 1,
-    "deliveryFee": 5,
+    "deliveryFee": 10,
     "ownerWhatsApp": "918369258002",
     "upiId": "paytmqr62rtez@ptys"
   }

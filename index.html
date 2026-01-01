@@ -72,6 +72,10 @@
       .shadow-soft {
         box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
       }
+      
+      .qty-btn {
+        @apply flex items-center justify-center w-8 h-8 rounded-lg bg-white text-orange-600 border border-orange-200 active:scale-90 transition-all shadow-sm;
+      }
     </style>
   <script type="importmap">
 {
@@ -361,7 +365,6 @@
                 setAppData(prev => ({ ...prev, products: data }));
                 return true;
               } else if (data.products) {
-                // Merge loaded settings with defaults to ensure all keys exist
                 const mergedSettings = {
                   minOrder: 100,
                   platformFee: 1,
@@ -399,6 +402,24 @@
           const loader = document.getElementById('loader');
           if (loader && !isLoading) { loader.style.opacity = '0'; setTimeout(() => loader.remove(), 400); }
         }, [isLoading]);
+
+        const updateCart = (product, delta) => {
+          setCart(prev => {
+            const existing = prev.find(i => i.id === product.id);
+            if (existing) {
+              const newQty = existing.quantity + delta;
+              if (newQty <= 0) return prev.filter(i => i.id !== product.id);
+              return prev.map(i => i.id === product.id ? { ...i, quantity: newQty } : i);
+            }
+            if (delta > 0) return [...prev, { ...product, quantity: delta }];
+            return prev;
+          });
+        };
+
+        const getItemQty = (id) => {
+          const item = cart.find(i => i.id === id);
+          return item ? item.quantity : 0;
+        };
 
         const cartTotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
         const deliveryFee = (deliveryMethod === 'home') 
@@ -460,35 +481,46 @@
                 {cart.length > 0 && <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center border-2 border-white">{cart.length}</span>}
               </button>
             </header>
-            <main className="pt-20 pb-32 px-4 fade-in">
+            <main className="pt-20 pb-40 px-4 fade-in">
               <nav className="flex gap-2 mb-6 overflow-x-auto no-scrollbar py-2">
                 {appData.categories.map(cat => (
                   <button key={cat} onClick={() => setCategory(cat)} className={`px-6 py-2 rounded-full text-[11px] font-black uppercase shadow-sm flex-shrink-0 transition-all ${category === cat ? 'bg-orange-600 text-white' : 'bg-white text-orange-900 border border-orange-100'}`}>{cat}</button>
                 ))}
               </nav>
               <div className="product-grid">
-                {(appData.products || []).filter(p => p.category === category).map(p => (
-                  <div key={p.id} className="bg-white rounded-2xl overflow-hidden shadow-soft border border-orange-50 flex flex-col h-full text-left active:scale-[0.98] transition-all" onClick={() => {
-                    setCart(prev => {
-                      const ex = prev.find(i => i.id === p.id);
-                      return ex ? prev.map(i => i.id === p.id ? {...i, quantity: i.quantity + 1} : i) : [...prev, {...p, quantity: 1}];
-                    });
-                  }}>
-                    <div className="h-32 bg-gray-100 overflow-hidden"><img src={p.image} className="w-full h-full object-cover" alt={p.name} /></div>
-                    <div className="p-3 flex-1 flex flex-col">
-                      <h3 className="text-sm font-bold text-gray-900 mb-1 leading-tight">{p.name}</h3>
-                      <p className="text-[10px] text-gray-400 mb-3 flex-1 line-clamp-2">{p.description}</p>
-                      <div className="mt-auto flex justify-between items-center"><span className="text-sm font-black text-orange-600">₹{p.price}</span><span className="text-[8px] font-bold text-gray-300 uppercase tracking-tighter">{p.weight}</span></div>
+                {(appData.products || []).filter(p => p.category === category).map(p => {
+                  const qty = getItemQty(p.id);
+                  return (
+                    <div key={p.id} className="bg-white rounded-2xl overflow-hidden shadow-soft border border-orange-50 flex flex-col h-full text-left transition-all">
+                      <div className="h-32 bg-gray-100 overflow-hidden relative">
+                        <img src={p.image} className="w-full h-full object-cover" alt={p.name} />
+                        <div className="absolute bottom-2 right-2">
+                          {qty === 0 ? (
+                            <button onClick={() => updateCart(p, 1)} className="px-5 py-1.5 bg-white text-orange-600 font-black text-[10px] rounded-lg border border-orange-200 shadow-lg active:scale-95 transition-all uppercase tracking-wider">Add</button>
+                          ) : (
+                            <div className="flex items-center bg-white rounded-lg border border-orange-200 shadow-lg overflow-hidden">
+                              <button onClick={() => updateCart(p, -1)} className="px-2.5 py-1.5 text-orange-600 active:bg-orange-50"><i className="fas fa-minus text-[8px]"></i></button>
+                              <span className="px-2 text-xs font-black text-orange-900">{qty}</span>
+                              <button onClick={() => updateCart(p, 1)} className="px-2.5 py-1.5 text-orange-600 active:bg-orange-50"><i className="fas fa-plus text-[8px]"></i></button>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="p-3 flex-1 flex flex-col">
+                        <h3 className="text-sm font-bold text-gray-900 mb-1 leading-tight">{p.name}</h3>
+                        <p className="text-[10px] text-gray-400 mb-3 flex-1 line-clamp-2">{p.description}</p>
+                        <div className="mt-auto flex justify-between items-center"><span className="text-sm font-black text-orange-600">₹{p.price}</span><span className="text-[8px] font-bold text-gray-300 uppercase tracking-tighter">{p.weight}</span></div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </main>
             {cart.length > 0 && (
               <div className="fixed bottom-6 left-4 right-4 max-w-md mx-auto animate-slideUp">
                 <button onClick={() => setView('cart')} className="w-full bg-orange-600 text-white font-black py-4 rounded-2xl shadow-2xl flex justify-between px-6 items-center border-4 border-white/20 active:scale-95 transition-all">
                   <span>{cart.length} Items</span>
-                  <span className="text-sm font-black uppercase tracking-widest">₹{totalWithFees} <i className="fas fa-arrow-right ml-2 text-[10px]"></i></span>
+                  <span className="text-sm font-black uppercase tracking-widest">View Cart • ₹{totalWithFees} <i className="fas fa-arrow-right ml-2 text-[10px]"></i></span>
                 </button>
               </div>
             )}
@@ -506,9 +538,9 @@
                     <h4 className="font-bold text-sm text-gray-900">{item.name}</h4>
                     <p className="text-orange-600 font-black text-sm">₹{item.price * item.quantity}</p>
                     <div className="flex items-center gap-3 mt-1">
-                      <button onClick={() => setCart(cart.map(i => i.id === item.id ? {...i, quantity: Math.max(1, i.quantity - 1)} : i))} className="w-6 h-6 bg-white rounded-lg border border-orange-100 text-xs flex items-center justify-center">-</button>
+                      <button onClick={() => updateCart(item, -1)} className="w-6 h-6 bg-white rounded-lg border border-orange-100 text-xs flex items-center justify-center">-</button>
                       <span className="font-bold text-xs">{item.quantity}</span>
-                      <button onClick={() => setCart(cart.map(i => i.id === item.id ? {...i, quantity: i.quantity + 1} : i))} className="w-6 h-6 bg-white rounded-lg border border-orange-100 text-xs flex items-center justify-center">+</button>
+                      <button onClick={() => updateCart(item, 1)} className="w-6 h-6 bg-white rounded-lg border border-orange-100 text-xs flex items-center justify-center">+</button>
                     </div>
                   </div>
                   <button onClick={() => setCart(cart.filter(i => i.id !== item.id))} className="text-gray-300 p-2"><i className="fas fa-times text-xs"></i></button>
